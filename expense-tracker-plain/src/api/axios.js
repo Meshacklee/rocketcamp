@@ -1,7 +1,8 @@
-// src/api/axios.js
+// src/api/axios.js (in your frontend project)
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:5000/api'; // Update if your backend runs elsewhere
+// Change this URL to your deployed backend URL
+const API_BASE_URL = 'https://rocketcamp.onrender.com/api'; // <-- Update this line
 
 const API = axios.create({
   baseURL: API_BASE_URL,
