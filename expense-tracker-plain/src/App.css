@@ -1,0 +1,914 @@
+/* src/App.css */
+
+/* Define CSS variables for light and dark modes */
+:root {
+  /* Light Mode Variables */
+  --bg-color: #f3f4f6;
+  --text-color: #111827;
+  --card-bg: #ffffff;
+  --header-bg: #ffffff;
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+  --border-color: #d1d5db;
+  --button-bg: #3b82f6;
+  --button-text: #ffffff;
+  --button-hover-bg: #2563eb;
+  --button-danger-bg: #ef4444;
+  --button-danger-hover-bg: #dc2626;
+  --input-bg: #ffffff;
+  --input-border: #d1d5db;
+  --input-text: #111827;
+  --table-bg: #ffffff;
+  --table-border: #e5e7eb;
+  --table-text: #111827;
+  --table-header-bg: #f9fafb;
+  --table-header-text: #374151;
+  --category-tag-bg: #e5e7eb;
+  --category-tag-text: #374151;
+  --category-food-bg: #fef2f2;
+  --category-food-text: #dc2626;
+  --category-transport-bg: #fefce8;
+  --category-transport-text: #854d0e;
+  --category-entertainment-bg: #f0f9ff;
+  --category-entertainment-text: #0369a1;
+  --category-bills-bg: #f0fdf4;
+  --category-bills-text: #166534;
+  --category-shopping-bg: #fdf4ff;
+  --category-shopping-text: #9333ea;
+  --category-health-bg: #e0f2fe;
+  --category-health-text: #0284c7;
+  --category-other-bg: #f3f4f6;
+  --category-other-text: #374151;
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+  --bg-color: #111827;
+  --text-color: #f9fafb;
+  --card-bg: #1f2937;
+  --header-bg: #1f2937;
+  --shadow: 0 1px 3px 0 rgba(255, 255, 255, 0.1);
+  --border-color: #374151;
+  --button-bg: #3b82f6;
+  --button-text: #ffffff;
+  --button-hover-bg: #60a5fa;
+  --button-danger-bg: #ef4444;
+  --button-danger-hover-bg: #f87171;
+  --input-bg: #374151;
+  --input-border: #4b5563;
+  --input-text: #f9fafb;
+  --table-bg: #1f2937;
+  --table-border: #374151;
+  --table-text: #f9fafb;
+  --table-header-bg: #374151;
+  --table-header-text: #d1d5db;
+  --category-tag-bg: #374151;
+  --category-tag-text: #d1d5db;
+  --category-food-bg: #7f1d1d;
+  --category-food-text: #fecaca;
+  --category-transport-bg: #713f12;
+  --category-transport-text: #fed7aa;
+  --category-entertainment-bg: #1e3a8a;
+  --category-entertainment-text: #bfdbfe;
+  --category-bills-bg: #14532d;
+  --category-bills-text: #a7f3d0;
+  --category-shopping-bg: #701a75;
+  --category-shopping-text: #f3c2e7;
+  --category-health-bg: #083344;
+  --category-health-text: #7dd3fc;
+  --category-other-bg: #374151;
+  --category-other-text: #d1d5db;
+}
+
+/* Apply variables to base elements */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Layout */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+.app-header {
+  background-color: var(--header-bg);
+  box-shadow: var(--shadow);
+  padding: 1rem 0;
+}
+
+.header-content {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--text-color);
+}
+
+.logout-button {
+  background-color: var(--button-danger-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.logout-button:hover {
+  background-color: var(--button-danger-hover-bg);
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 2rem 0;
+}
+
+.main-content-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Card */
+.card {
+  background-color: var(--card-bg);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Button */
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+}
+
+.btn-primary:hover {
+  background-color: var(--button-hover-bg);
+}
+
+.btn-danger {
+  background-color: var(--button-danger-bg);
+  color: var(--button-text);
+}
+
+.btn-danger:hover {
+  background-color: var(--button-danger-hover-bg);
+}
+
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+}
+
+/* Input */
+.input {
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border: 1px solid var(--input-border);
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--button-bg);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+/* Select */
+.select {
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border: 1px solid var(--input-border);
+  border-radius: 0.375rem;
+  padding: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid var(--table-border);
+}
+
+.table th {
+  background-color: var(--table-header-bg);
+  color: var(--table-header-text);
+  font-weight: 600;
+}
+
+.table td {
+  color: var(--table-text);
+}
+
+.table tbody tr:hover {
+  background-color: var(--table-header-bg);
+}
+
+/* Category Tag */
+.category-tag {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  background-color: var(--category-tag-bg);
+  color: var(--category-tag-text);
+}
+
+.category-tag.category-Food {
+  background-color: var(--category-food-bg);
+  color: var(--category-food-text);
+}
+.category-tag.category-Transport {
+  background-color: var(--category-transport-bg);
+  color: var(--category-transport-text);
+}
+.category-tag.category-Entertainment {
+  background-color: var(--category-entertainment-bg);
+  color: var(--category-entertainment-text);
+}
+.category-tag.category-Bills {
+  background-color: var(--category-bills-bg);
+  color: var(--category-bills-text);
+}
+.category-tag.category-Shopping {
+  background-color: var(--category-shopping-bg);
+  color: var(--category-shopping-text);
+}
+.category-tag.category-Health {
+  background-color: var(--category-health-bg);
+  color: var(--category-health-text);
+}
+.category-tag.category-Other {
+  background-color: var(--category-other-bg);
+  color: var(--category-other-text);
+}
+
+/* Flex helpers */
+.flex {
+  display: flex;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+/* Grid helpers */
+.grid {
+  display: grid;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+@media (min-width: 768px) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Text helpers */
+.text-center {
+  text-align: center;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+}
+
+.font-bold {
+  font-weight: bold;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+/* Loading/Empty states */
+.loading-message,
+.empty-message {
+  text-align: center;
+  padding: 2rem;
+  font-style: italic;
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-weight: 500;
+  margin-left: 1rem; /* Add some space from the title */
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--button-hover-bg);
+}
+/* src/App.css - Add this rule */
+.ml-2 {
+  margin-left: 0.6rem; /* Adjust as needed */
+}
+
+
+
+
+/* src/App.css - ADDITIONS/UPDATES for Responsiveness */
+
+/* Responsive Grid Layouts (Summary Cards, Charts) */
+.grid {
+  display: grid;
+  /* Use minmax to allow items to grow/shrink, but not below a minimum size */
+  grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr));
+  gap: 1.5rem; /* Use the existing gap */
+  margin-bottom: 2rem; /* Use the existing margin */
+}
+
+/* Adjust grid columns for larger screens */
+@media (min-width: 768px) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr); /* Use 3 equal columns on medium screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr); /* Maintain 3 columns on large screens */
+  }
+}
+
+/* Responsive Table */
+.table-container { /* Add this wrapper in ExpenseList.js around the table */
+  overflow-x: auto; /* Allows horizontal scrolling if the table is too wide */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.table {
+  width: 100%; /* Ensure table takes full width of container */
+  min-width: 650px; /* Prevent table from becoming too narrow, forcing scroll */
+  border-collapse: collapse;
+  /* ... existing table styles ... */
+}
+
+.table th,
+.table td {
+  padding: 0.5rem; /* Slightly reduce padding on smaller screens */
+  /* ... existing styles ... */
+}
+
+@media (min-width: 640px) {
+  .table th,
+  .table td {
+    padding: 0.75rem; /* Revert to original padding on larger screens */
+  }
+}
+
+/* Responsive Filters (Dashboard) */
+.filter-grid { /* Add this class to the filter container div in Dashboard.js */
+  display: grid;
+  grid-template-columns: 1fr; /* Stack inputs vertically on small screens */
+  gap: 1rem; /* Use the existing gap */
+}
+
+@media (min-width: 768px) {
+  .filter-grid {
+    grid-template-columns: repeat(3, 1fr); /* Use 3 columns on medium screens */
+  }
+}
+
+/* Responsive Header Content */
+.header-content {
+  /* ... existing styles ... */
+  flex-direction: column; /* Stack title and buttons vertically on small screens */
+  align-items: flex-start; /* Align items to the start */
+  gap: 0.5rem; /* Add some space between stacked elements */
+}
+
+.header-actions { /* Wrap logout and theme toggle buttons in a div in App.js */
+  display: flex;
+  flex-direction: row; /* Keep buttons in a row */
+  gap: 0.5rem; /* Add space between buttons */
+  width: 100%; /* Take full width */
+  justify-content: flex-end; /* Align buttons to the right */
+}
+
+@media (min-width: 640px) {
+  .header-content {
+    flex-direction: row; /* Use row layout on larger screens */
+    align-items: center; /* Align items center */
+    gap: 1rem; /* Adjust gap */
+  }
+  .header-actions {
+    width: auto; /* Don't force full width */
+    justify-content: flex-end; /* Keep right alignment */
+  }
+}
+
+/* Responsive Buttons */
+.btn {
+  /* ... existing styles ... */
+  padding: 0.4rem 0.8rem; /* Slightly smaller padding on small screens */
+  font-size: 0.9rem; /* Slightly smaller font */
+}
+
+@media (min-width: 640px) {
+  .btn {
+    padding: 0.5rem 1rem; /* Revert to original padding */
+    font-size: 1rem; /* Revert to original font size */
+  }
+}
+
+/* Responsive Card Padding */
+.card {
+  /* ... existing styles ... */
+  padding: 1rem; /* Slightly smaller padding on small screens */
+}
+
+@media (min-width: 640px) {
+  .card {
+    padding: 1.5rem; /* Revert to original padding */
+  }
+}
+
+/* Responsive Text Sizes */
+.text-lg {
+  font-size: 1rem; /* Slightly smaller on small screens */
+}
+
+.text-2xl {
+  font-size: 1.25rem; /* Slightly smaller on small screens */
+}
+
+@media (min-width: 640px) {
+  .text-lg {
+    font-size: 1.125rem; /* Revert to original */
+  }
+  .text-2xl {
+    font-size: 1.5rem; /* Revert to original */
+  }
+}
+
+/* Responsive Main Content Padding */
+.main-content-inner {
+  padding: 0 0.5rem; /* Smaller side padding on small screens */
+}
+
+@media (min-width: 640px) {
+  .main-content-inner {
+    padding: 0 1rem; /* Revert to original padding */
+  }
+}
+
+/* Responsive Header Padding */
+.app-header {
+  padding: 0.5rem 0; /* Smaller vertical padding on small screens */
+}
+
+@media (min-width: 640px) {
+  .app-header {
+    padding: 1rem 0; /* Revert to original padding */
+  }
+}
+
+/* Responsive Main Content Padding */
+.main-content {
+  padding: 1rem 0; /* Smaller vertical padding on small screens */
+}
+
+@media (min-width: 640px) {
+  .main-content {
+    padding: 2rem 0; /* Revert to original padding */
+  }
+}
+
+/* Responsive Margins */
+.mb-4 {
+  margin-bottom: 0.75rem; /* Slightly smaller */
+}
+
+.mb-6 {
+  margin-bottom: 1rem; /* Slightly smaller */
+}
+
+.mb-8 {
+  margin-bottom: 1.5rem; /* Slightly smaller */
+}
+
+@media (min-width: 640px) {
+  .mb-4 {
+    margin-bottom: 1rem; /* Revert */
+  }
+  .mb-6 {
+    margin-bottom: 1.5rem; /* Revert */
+  }
+  .mb-8 {
+    margin-bottom: 2rem; /* Revert */
+  }
+}
+
+/* Ensure body has no horizontal scroll */
+body {
+  /* ... existing styles ... */
+  overflow-x: hidden; /* Prevent horizontal scroll on the body */
+}
+
+
+/* src/App.css - ADDITIONS for Enhanced Forms */
+
+/* Form Container */
+.form-container {
+  max-width: 40rem; /* e.g., 640px */
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border-radius: 0.75rem; /* Slightly more rounded */
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+}
+
+/* Form Title */
+.form-title {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: bold; /* font-bold */
+  color: var(--text-color);
+  margin-bottom: 1.5rem; /* mb-6 */
+  text-align: center;
+}
+
+/* Form Group (Label + Input/Select wrapper) */
+.form-group {
+  margin-bottom: 1.5rem; /* mb-6 - Space between form elements */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem; /* mb-2 */
+  font-weight: 500; /* font-medium */
+  color: var(--text-color);
+}
+
+/* Input & Select Styling (Refined) */
+.input,
+.select {
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border: 2px solid var(--input-border); /* Slightly thicker border */
+  border-radius: 0.5rem; /* Slightly more rounded */
+  padding: 0.75rem 1rem; /* Slightly more padding */
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--button-bg); /* Use primary button color for focus */
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); /* Focus ring */
+}
+
+/* Button Styling (Refined) */
+.btn {
+  /* ... existing styles ... */
+  padding: 0.75rem 1.5rem; /* Slightly more padding */
+  border-radius: 0.5rem; /* Slightly more rounded */
+  font-weight: 600; /* font-semibold */
+  transition: all 0.2s ease; /* Smooth hover transition */
+}
+
+.btn:hover {
+  transform: translateY(-1px); /* Slight lift on hover */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Add shadow on hover */
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none; /* No lift when disabled */
+}
+
+/* Specific button styles */
+.btn-primary {
+  /* ... existing styles ... */
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); /* Initial subtle shadow */
+}
+
+.btn-danger {
+  /* ... existing styles ... */
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); /* Initial subtle shadow */
+}
+
+/* Form Action Buttons (Submit, Cancel) */
+.form-actions {
+  display: flex;
+  gap: 1rem; /* Space between buttons */
+  margin-top: 1.5rem; /* Space above buttons */
+  justify-content: center; /* Center buttons */
+}
+
+/* Responsive adjustments for forms */
+@media (min-width: 640px) {
+  .form-container {
+    padding: 2.5rem; /* Slightly more padding on larger screens */
+  }
+  .form-title {
+    font-size: 1.875rem; /* text-3xl */
+  }
+  .form-group {
+    margin-bottom: 1.75rem; /* Slightly more space */
+  }
+}
+
+/* Specific styles for login/register page if needed */
+.auth-form-container {
+  /* Can be the same as .form-container or have slight variations */
+  max-width: 24rem; /* Smaller width for auth forms */
+  margin: 4rem auto; /* More vertical margin */
+}
+
+/* Specific styles for expense form if needed */
+.expense-form-container {
+  /* Can be the same as .form-container or have slight variations */
+  max-width: 32rem; /* Medium width for expense form */
+  margin: 2rem auto;
+}
+
+
+/* src/App.css - ADDITIONS/UPDATES for Register Form Styling */
+
+/* Form Container (applies to Login, Register, Add/Edit Expense) */
+.form-container {
+  max-width: 40rem; /* e.g., 640px */
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border-radius: 0.75rem; /* Slightly more rounded */
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border-color);
+  /* Add a subtle background or border animation on focus/hover if desired */
+  transition: box-shadow 0.3s ease;
+}
+
+.form-container:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Form Title */
+.form-title {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: bold; /* font-bold */
+  color: var(--text-color);
+  margin-bottom: 1.5rem; /* mb-6 */
+  text-align: center;
+  /* Add a subtle underline or border */
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.form-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 2px;
+  background-color: var(--button-bg); /* Use primary color */
+  border-radius: 9999px;
+}
+
+/* Form Group (Label + Input/Select wrapper) */
+.form-group {
+  margin-bottom: 1.5rem; /* mb-6 - Space between form elements */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem; /* mb-2 */
+  font-weight: 500; /* font-medium */
+  color: var(--text-color);
+  /* Add an icon or indicator if needed */
+  /* font-size: 0.875rem; */ /* Slightly smaller label text */
+}
+
+/* Input & Select Styling (Refined - applies to all forms) */
+.input,
+.select {
+  background-color: var(--input-bg);
+  color: var(--input-text);
+  border: 2px solid var(--input-border); /* Slightly thicker border */
+  border-radius: 0.5rem; /* Slightly more rounded */
+  padding: 0.75rem 1rem; /* Slightly more padding */
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+  /* Add a subtle inset shadow */
+  box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.input:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--button-bg); /* Use primary button color for focus */
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2), inset 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* Focus ring + inset shadow */
+  background-color: var(--input-bg); /* Ensure bg doesn't change on focus if desired */
+}
+
+/* Input & Select Hover Effect */
+.input:hover,
+.select:hover {
+  border-color: var(--button-hover-bg); /* Slightly different border on hover */
+}
+
+/* Button Styling (Refined - applies to all forms) */
+.btn {
+  /* ... existing styles ... */
+  padding: 0.75rem 1.5rem; /* Slightly more padding */
+  border-radius: 0.5rem; /* Slightly more rounded */
+  font-weight: 600; /* font-semibold */
+  transition: all 0.2s ease; /* Smooth hover transition */
+  display: inline-flex; /* Use flex for better alignment */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+  gap: 0.5rem; /* Space between icon/text */
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-1px); /* Slight lift on hover */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Add shadow on hover */
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none; /* No lift when disabled */
+}
+
+/* Specific button styles */
+.btn-primary {
+  /* ... existing styles ... */
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); /* Initial subtle shadow */
+  background-color: var(--button-bg); /* Ensure bg color */
+  color: var(--button-text); /* Ensure text color */
+}
+
+.btn-primary:hover {
+  background-color: var(--button-hover-bg); /* Hover bg color */
+}
+
+.btn-danger {
+  /* ... existing styles ... */
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1); /* Initial subtle shadow */
+  background-color: var(--button-danger-bg); /* Ensure bg color */
+  color: var(--button-text); /* Ensure text color */
+}
+
+.btn-danger:hover {
+  background-color: var(--button-danger-hover-bg); /* Hover bg color */
+}
+
+/* Form Action Buttons (Submit, Cancel) */
+.form-actions {
+  display: flex;
+  gap: 1rem; /* Space between buttons */
+  margin-top: 1.5rem; /* Space above buttons */
+  justify-content: center; /* Center buttons */
+}
+
+/* Specific styles for login/register page container */
+.auth-form-container {
+  /* Can be the same as .form-container or have slight variations */
+  max-width: 28rem; /* Slightly wider than before for more space */
+  margin: 4rem auto; /* More vertical margin */
+  /* Add a subtle background image or gradient if desired (optional) */
+  /* background: linear-gradient(to bottom, var(--card-bg), var(--bg-color)); */
+}
+
+/* Specific styles for expense form container if needed */
+.expense-form-container {
+  /* Can be the same as .form-container or have slight variations */
+  max-width: 36rem; /* Slightly wider than before */
+  margin: 2rem auto;
+}
+
+/* Link Styling within forms (e.g., "Don't have an account? Register") */
+.form-link {
+  color: var(--button-bg); /* Use primary color */
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.form-link:hover {
+  color: var(--button-hover-bg); /* Hover color */
+  text-decoration: underline;
+}
+
+/* Responsive adjustments for forms */
+@media (min-width: 640px) {
+  .form-container {
+    padding: 2.5rem; /* Slightly more padding on larger screens */
+  }
+  .form-title {
+    font-size: 1.875rem; /* text-3xl */
+  }
+  .form-group {
+    margin-bottom: 1.75rem; /* Slightly more space */
+  }
+  .auth-form-container {
+    max-width: 32rem; /* Adjust width on larger screens */
+  }
+  .expense-form-container {
+    max-width: 40rem; /* Adjust width on larger screens */
+  }
+}
+
+/* --- END OF FORM STYLING ADDITIONS --- */
+
+/* --- Keep all your existing CSS rules here --- */
+/* :root { ... } */
+/* body { ... } */
+/* .app-container { ... } */
+/* ... (all previous rules) ... */
+/* --- END OF EXISTING CSS --- */
